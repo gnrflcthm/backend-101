@@ -16,3 +16,8 @@ process.argv
 ```
 const name = require(module);
 ```
+
+## **Modules** 
+---
+## *fs*
+- Module for handling the file system.
