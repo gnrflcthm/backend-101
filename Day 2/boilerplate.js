@@ -1,10 +1,19 @@
 const fs = require("fs");
 
-// console.log(fs);
+const folderName = process.argv[2] || "Project";
 
-fs.mkdir("Dogs", { recursive: true }, (err) => {
-    console.log("In the callback.");
-    if (err) throw err;
-});
+try {
+    fs.mkdirSync(folderName);
 
-console.log("I come after mkdir");
+    // index.html
+    fs.writeFileSync(`${folderName}/index.html`, "");
+
+    // style.css
+    fs.writeFileSync(`${folderName}/style.css`, "");
+
+    // app.js
+    fs.writeFileSync(`${folderName}/app.js`, "");
+    
+} catch (err) {
+    console.log("Error: ", err);
+}
