@@ -1,9 +1,6 @@
 # **Backend Development 101: Day 2**
 
-<br />
-
 ## **Basic Node Functions**
----
 ## *process.argv*
 - First item is executable path
 - Second item is the file to be run.
