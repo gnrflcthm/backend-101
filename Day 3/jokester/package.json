@@ -1,0 +1,11 @@
+{
+  "name": "jokester",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "give-me-a-joke": "^0.5.1",
+    "uwuify2": "^1.0.1"
+  }
+}

@@ -1,9 +1,17 @@
 # **Bayan Academy: Backend Development 101**
 
 ## **Day 1**
-- Terminal Commands
-- NodeJS
+
+-   Terminal Commands
+-   NodeJS
 
 ## **Day 2**
-- NodeJS
-- Node Modules
+
+-   NodeJS
+-   Node Modules
+
+## **Day 3**
+
+-   Node Modules
+-   NPM
+-   Express
