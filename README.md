@@ -1,9 +1,11 @@
 # **Bayan Academy: Backend Development 101**
 
 ## **Instructor Email Address**
+
 aldrin.john.b.tamayo@gmail.com
-- Email Subject: [Backend] - LastName, FirstName
-- Email Content: Date, Reason
+
+-   Email Subject: [Backend] - LastName, FirstName
+-   Email Content: Date, Reason
 
 ## **Day 1**
 
@@ -20,3 +22,8 @@ aldrin.john.b.tamayo@gmail.com
 -   Node Modules
 -   NPM
 -   Express
+
+## **Day 4**
+
+-   Express
+-   Nodemon
