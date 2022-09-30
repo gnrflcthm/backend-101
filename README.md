@@ -27,3 +27,8 @@ aldrin.john.b.tamayo@gmail.com
 
 -   Express
 -   Nodemon
+
+## **Day 5**
+
+-   Express
+-   EJS
