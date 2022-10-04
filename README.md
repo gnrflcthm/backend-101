@@ -32,3 +32,8 @@ aldrin.john.b.tamayo@gmail.com
 
 -   Express
 -   EJS
+
+## **Day 6**
+
+-   EJS
+-   Serving Static Files
