@@ -37,3 +37,8 @@ aldrin.john.b.tamayo@gmail.com
 
 -   EJS
 -   Serving Static Files
+
+## **Day 7**
+
+-   EJS
+-   REST API

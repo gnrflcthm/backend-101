@@ -1,0 +1,20 @@
+
+<%- include("partials/head")  %> 
+
+<body>
+    <%- include("partials/navbar") %> 
+    <h1>Random Number</h1>
+    <h2>Your random number is <%= rand %></h2>
+    
+    <%# Using If Else %> 
+    <% if (rand % 2===0) { %>
+        <h2>Your Number is Even</h2>
+    <% } else { %>
+        <h2>Your Number is Odd</h2>
+    <% } %> 
+
+    <%# Using Ternary %> 
+    <h2>Your Number is <%= rand % 2 === 0 ? "Even" : "Odd" %> </h2>
+</body>
+
+</html>
