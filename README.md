@@ -32,3 +32,18 @@ aldrin.john.b.tamayo@gmail.com
 
 -   Express
 -   EJS
+-   
+## **Day 6**
+
+-   EJS
+-   Serving Static Files
+
+## **Day 7**
+
+-   EJS
+-   REST API
+
+## **Day 8**
+
+-   CRUD
+-   More HTTP Methods

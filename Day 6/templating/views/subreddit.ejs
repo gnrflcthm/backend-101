@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/app.css">
+    <title>
+        <%= data.name %>
+    </title>
+</head>
+
+<body>
+    <h1>Welcome to r/<%= data.name %></h1>
+    <p><%= data.description %> </p>
+    <p>Subscribers: <%= data.subscribers %></p>
+        <% for (let post of data.posts) { %> 
+            <article>
+                <p><%= post.title %> - <strong><%= post.author %></strong></p>
+
+                <% if (post.img){ %>
+                    <img src="<%= post.img %>" alt ="">
+                    <% } %>
+            </article>
+        <% } %> 
+</body>
+
+</html>
