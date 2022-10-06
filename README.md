@@ -44,3 +44,6 @@ aldrin.john.b.tamayo@gmail.com
 -   REST API
 
 ## **Day 8**
+
+-   CRUD
+-   More HTTP Methods
