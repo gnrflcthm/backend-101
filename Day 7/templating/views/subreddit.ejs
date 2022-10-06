@@ -1,0 +1,32 @@
+<%- include("partials/head") %> 
+<body>
+    <%- include("partials/navbar") %> 
+    <div class="container mt-4">
+        <h1>Welcome to r/<%= name %>
+        </h1>
+        <p>
+            <%= description %>
+        </p>
+        <p>Subscribers:<%= subscribers %>
+        </p>
+        <% for (let post of posts) { %>
+            <article class="card mb-4">
+                <div class="card-header">
+                    <h3>
+                        <%= post.title %>
+                    </h3>
+                    <p>
+                        <%= post.author %>
+                    </p>
+                </div>
+                <% if (post.img) { %>
+                    <div class="card-body d-flex justify-content-center h-25">
+                        <img src="<%= post.img %>" class="rounded mx-auto">
+                    </div>
+                <% } %>
+            </article>
+        <% } %>
+    </div>
+</body>
+
+</html>
