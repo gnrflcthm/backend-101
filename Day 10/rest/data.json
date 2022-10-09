@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "author": "RY",
+        "post": "Hey!",
+        "comments": ["Luh", "Hoy!"]
+    },
+    {
+        "id": 2,
+        "author": "Test",
+        "post": "Testing!",
+        "comments": ["Test001", "Test002"]
+    }
+]

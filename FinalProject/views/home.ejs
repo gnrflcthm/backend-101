@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="min-h-screen bg-gray-800">
+        <div class="h-24">
+            <button class="float-right mr-10 mt-8 text-white content-center bg-red-700 hover:bg-red-800 font-bold py-2 px-4 rounded-lg">
+                Delete
+            </button>
+            <button class="float-right mr-5 mt-8 text-white content-center bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded-lg">
+                Update
+            </button>
+            <button class="float-right mr-5 mt-8 text-white content-center bg-green-500 hover:bg-green-700 font-bold py-2 px-4 rounded-lg">
+                Add
+            </button>
+        </div>
+        
+        <div class="w-full">
+            <h1 class="text-center text-white font-bold text-3xl">Posts</h1>
+        </div>
+
+        <div class="p-10 grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5">
+            <% for (let l of listings){ %>
+            <!--Card 1-->
+            <div class="rounded overflow-hidden shadow-lg bg-white">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2"><%= l.username %></div>
+                <p class="text-gray-700 text-base">
+                    <%= l.textPost %>
+                </p>
+              </div>
+              <div class="px-6 pt-4 pb-2">
+                <a 
+                    class="inline-block bg-blue-600 rounded-xl px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-blue-800 hover:text-gray-200" 
+                    href="/listings/<%= l.id %>">See more details</a>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+    <%- include('partials/footer') %>
+    
+</body>
+</html>
