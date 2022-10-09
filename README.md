@@ -49,4 +49,11 @@ aldrin.john.b.tamayo@gmail.com
 -   More HTTP Methods
 
 ## **Day 9**
--
+
+-   DELETE Method
+-   Databases and MongoDB
+
+## **Day 10**
+
+-   More MongoDB
+-   MongooseJS
