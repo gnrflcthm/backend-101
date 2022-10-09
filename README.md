@@ -53,4 +53,7 @@ aldrin.john.b.tamayo@gmail.com
 -   DELETE Method
 -   Databases and MongoDB
 
+## **Day 10**
 
+-   More MongoDB
+-   MongooseJS
