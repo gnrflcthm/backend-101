@@ -62,3 +62,8 @@ aldrin.john.b.tamayo@gmail.com
 
 -   MongooseJS
 -   CRUD App with Mongoose and Express
+
+## **Day 12**
+
+-   CRUD Delete Method
+-   Middlewares
