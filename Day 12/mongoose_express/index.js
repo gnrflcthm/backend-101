@@ -54,10 +54,23 @@ app.put('/products/:id', async (req, res) =>{
     res.redirect(`/products/${product._id}`);
 });
 
+//Delete a product
+app.delete('/products/:id', async (req, res) =>{
+    const { id } = req.params;
+    const deleteProduct = await Product.findByIdAndDelete(id);
+    res.redirect('/products')
+})
+
 //View all products
-app.get('/products', async (req,res) =>{
-    const products = await Product.find({});
-    res.render('products/index', {products});
+app.get('/products', async (req,res) => {
+    const { category } = req.query;
+    if (category){
+        const products = await Product.find({ category });
+        res.render('products/index', { products, category });
+    } else {
+        const products = await Product.find({});
+        res.render('products/index', {products, category: 'All'});
+    }
 });
 
 //View Specific product

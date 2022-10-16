@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
 const PORT = 3000;
-const { v4:uuidv4 } = require('uuid');
+const mongoose = require('mongoose');
+const Listing = require ("./models/listing");
+const User = require ("./models/user");
 const methodOverride = require('method-override');
 
 const app = express();
@@ -9,49 +11,66 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 
-let listings = [
-    {
-        id: uuidv4(),
-        username: 'dlmgl',
-        textPost: 'Jabol',
-        imageLink: 'https://pbs.twimg.com/profile_banners/2370335270/1664214105/1500x500'
-    },
-    {
-        id: uuidv4(),
-        username: 'jheeddi',
-        textPost: 'Raw >>>>',
-        imageLink: 'https://media.istockphoto.com/photos/variety-of-raw-black-angus-prime-meat-steaks-picture-id923692030?k=20&m=923692030&s=612x612&w=0&h=k-b2wtmHwBbpmSM74dN0gZzRD9oEwBUYiXdlWYD6mHY='
-    },
-    {
-        id: uuidv4(),
-        username: 'rowyourbowt',
-        textPost: 'Seggs!',
-        imageLink: 'https://i.pximg.net/img-master/img/2022/04/04/19/16/19/97404887_p0_master1200.jpg'
-    },
-    {
-        id: uuidv4(),
-        username: 'Gabb',
-        textPost: 'Juandissimo',
-        imageLink: 'https://64.media.tumblr.com/4186ef939bcb34a4a74051b582a1d061/814d5d1607f1f250-45/s500x750/019dae8bcdf6a0ed21b693d892155b1b5c689124.jpg'
-    }
-];
-
-app.get('/', (req, res) => {
-    res.render('home' , { listings });
+mongoose.connect('mongodb://localhost:27017/kapeKo')
+.then(() => {
+    console.log("Connection Open");
+})
+.catch(err =>{
+    console.log("Error!");
+    console.log(err);
 });
 
-//READ all listings to Home
-app.get('/home', (req, res) => {
-    res.render('home' , { listings });
+//Form to Add Cafe
+app.get('/cafe/add', (req, res) => {
+    res.render('cafe/add');
 });
 
-app.post('/home', (req, res) => {
-    res.render('home');
+//Insert a New Cafe
+app.post('/cafe', async (req, res) =>{
+    const newCafe = new Listing(req.body);
+    await newCafe.save();
+    console.log(newCafe);
+    res.redirect(`/cafe/${newCafe._id}`);
 });
+
+//Form to update a Cafe
+app.get('/cafe/:id/updateCafe', async (req, res) => {
+    const { id } = req.params;
+    const cafe = await Listing.findById(id);
+    res.render('cafe/edit', { cafe });
+});
+
+//Update a Cafe
+app.put('/cafe/:id', async (req, res) =>{
+    const { id } = req.params;
+    const cafe = await Listing.findByIdAndUpdate(id, req.body, {runValidators: true, new: true});
+    res.redirect(`/cafe/${cafe._id}`);
+});
+
+//Delete a Cafe
+app.delete('/cafe/:id', async (req, res) =>{
+    const { id } = req.params;
+    const deleteCafe = await Listing.findByIdAndDelete(id);
+    res.redirect('/home')
+})
+
+//View Specific Cafe
+app.get('/cafe/:id', async (req, res) => {
+    const { id } = req.params;
+    const cafe = await Listing.findById(id);
+    res.render("cafe/cafe", { cafe });
+});
+
+//Show all Cafe to home
+app.get('/home', async (req,res) => {
+    const listings = await Listing.find({});
+    res.render('cafe/home', { listings });
+})
 
 app.get('/signin', (req, res) => {
     res.render('signin');
@@ -61,12 +80,11 @@ app.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-
-app.get('/*', (req, res) => {
-    res.render('error');
+app.use((req, res) => {
+    res.status(404).render("error");
 });
 
 app.listen(PORT, () => {
     console.log(`Started on port ${PORT}`);
-    console.log(`Access using localhost:${PORT}`);
+    console.log(`Access using http://localhost:${PORT}/home`);
 });
